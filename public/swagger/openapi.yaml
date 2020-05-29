@@ -1,0 +1,118 @@
+openapi: 3.0.0
+info:
+  title: 'Cats API'
+  contact:
+    email: regiszanandrea@gmail.com
+  version: 1.0.0
+servers:
+  -
+    url: 'http://cats.test'
+paths:
+  /api/breeds:
+    get:
+      tags:
+        - breeds
+      summary: 'Returns a list of breeds'
+      description: 'Returns a object of breeds'
+      operationId: 'App\Http\Controllers\BreedController::index'
+      responses:
+        '200':
+          description: 'A list with breeds'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Breed'
+        '400':
+          description: 'Bad request'
+          content:
+            application/json: {  }
+        '500':
+          description: 'Internal server error'
+          content:
+            application/json: {  }
+components:
+  schemas:
+    Breed:
+      type: array
+      items:
+        properties:
+          id:
+            type: string
+          lap:
+            type: integer
+          rex:
+            type: integer
+          name:
+            type: string
+          rare:
+            type: integer
+          indoor:
+            type: integer
+          origin:
+            type: string
+          weight:
+            properties:
+              metric:
+                type: string
+              imperial:
+                type: string
+            type: object
+          cfa_url:
+            type: string
+          natural:
+            type: integer
+          grooming:
+            type: integer
+          hairless:
+            type: integer
+          life_span:
+            type: string
+          bidability:
+            type: integer
+          short_legs:
+            type: integer
+          description:
+            type: string
+          temperament:
+            type: string
+          adaptability:
+            type: integer
+          cat_friendly:
+            type: integer
+          country_code:
+            type: string
+          dog_friendly:
+            type: integer
+          energy_level:
+            type: integer
+          experimental:
+            type: integer
+          intelligence:
+            type: integer
+          social_needs:
+            type: integer
+          country_codes:
+            type: string
+          vocalisation:
+            type: integer
+          health_issues:
+            type: integer
+          vetstreet_url:
+            type: string
+          wikipedia_url:
+            type: string
+          child_friendly:
+            type: integer
+          hypoallergenic:
+            type: integer
+          shedding_level:
+            type: integer
+          affection_level:
+            type: integer
+          suppressed_tail:
+            type: integer
+          vcahospitals_url:
+            type: string
+          stranger_friendly:
+            type: integer
+        type: object
