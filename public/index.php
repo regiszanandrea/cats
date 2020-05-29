@@ -13,4 +13,6 @@ $app = AppFactory::create();
 
 $app->addRoutingMiddleware();
 
+require "{$rootPath}/bootstrap.php";
+
 $app->run();
