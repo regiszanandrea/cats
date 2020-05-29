@@ -22,9 +22,11 @@ $container['db'] = function ($container) use ($capsule) {
 };
 
 require "{$root}/routes/web.php";
+require "{$root}/routes/auth.php";
+
 
 // Add Whoops Tool
-if ((bool)($_ENV['DEBUG'] ?? false)) {
+if ($_ENV['DEBUG'] == 'true') {
     $app->add(new Zeuxisoo\Whoops\Slim\WhoopsMiddleware(['enable' => true]));
 } else {
     // Add Error Middleware
@@ -36,6 +38,20 @@ if ((bool)($_ENV['DEBUG'] ?? false)) {
     $errorHandler->registerErrorRenderer('application/json', Handler::class);
 }
 
+$app->add(new Tuupola\Middleware\HttpBasicAuthentication([
+    "path" => "/login",
+    "relaxed" => ["127.0.0.1", "localhost"],
+    "secure" => false,
+    "users" => [
+        "admin" => '@#$RF@!718',
+    ]
+]));
 
+$app->add(new Tuupola\Middleware\JwtAuthentication([
+    "secure" => false,
+    'path' => '/api',
+    'relaxed' => ['127.0.0.1', 'localhost'],
+    'secret' =>  $_ENV['JWT_SECRET']
+]));
 
 
