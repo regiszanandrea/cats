@@ -2,6 +2,7 @@
 
 - [Installation](#installation)
 - [Running](#running)
+- [Documentation](#documentation)
 - [Testing](#testing)
 - [License](#license)
 
@@ -21,7 +22,7 @@ Generates .env
 cp .env.example .env
 ```
 
-Add CAT_API_KEY to your .env 
+Add CAT_API_KEY, APP_URL to your .env 
 ```bash
 nano .env
 ```
@@ -41,6 +42,13 @@ php -S localhost:8080 -t public public/index.php
 
 And you are good to go :)
 
+<a name="documentation" />
+
+## Documentation
+The documentation was build with swagger. So, to run swagger, you will need docker and execute:
+```bash
+docker run -d -p 8080:8080 -e SWAGGER_JSON=/openapi.yaml -v h<absolute pat>/public/swagger/openapi.yaml:/openapi.yaml swaggerapi/swagger-ui
+```
 <a name="testing" />
 
 ## Testing
