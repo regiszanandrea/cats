@@ -22,7 +22,6 @@ $container['db'] = function ($container) use ($capsule) {
 };
 
 require "{$root}/routes/web.php";
-require "{$root}/routes/api.php";
 require "{$root}/routes/auth.php";
 
 
