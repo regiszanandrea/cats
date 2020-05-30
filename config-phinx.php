@@ -21,6 +21,14 @@ return [
             'user' => $database['username'],
             'pass' => $database['password'],
             'port' => $database['port'],
+        ],
+        'testing' => [
+            'adapter' => $database['driver'],
+            'host' => $database['host'],
+            'name' => 'testing',
+            'user' => $database['username'],
+            'pass' => $database['password'],
+            'port' => $database['port'],
         ]
     ]
 ];
