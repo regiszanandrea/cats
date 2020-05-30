@@ -19,7 +19,7 @@ use App\Actions\Breeds\FindBreeds;
  *       @OA\Property(property="rare", type="integer"),
  *       @OA\Property(property="indoor", type="integer"),
  *       @OA\Property(property="origin", type="string"),
- *       @OA\Property(property="weight", type="object", 
+ *       @OA\Property(property="weight", type="object",
  *           @OA\Property(property="metric", type="string"),
  *           @OA\Property(property="imperial", type="string"),
  *       ),
@@ -54,7 +54,7 @@ use App\Actions\Breeds\FindBreeds;
  *       @OA\Property(property="stranger_friendly", type="integer"),
  *   )
  * )
- * 
+ *
  * Class BreedController
  * @package App\Http\Controllers
  */
@@ -67,23 +67,23 @@ class BreedController
      *     description="Returns a object of breeds",
      *     path="/api/breeds",
      *     @OA\Response(
-     *         response="200", 
+     *         response="200",
      *         description="A list with breeds",
      *         @OA\MediaType(
      *             mediaType="application/json",
      *             @OA\Schema(ref="#/components/schemas/Breed"),
      *         )
-     *     ),  
-     *      
+     *     ),
+     *
      *     @OA\Response(
      *         response="400",
      *         description="Bad request",
      *         @OA\MediaType(
      *             mediaType="application/json",
-     *         ), 
+     *         ),
      *      ),
      *     @OA\Response(
-     *         response="500", 
+     *         response="500",
      *         description="Internal server error",
      *         @OA\MediaType(
      *             mediaType="application/json",
@@ -91,7 +91,6 @@ class BreedController
      *    ),
      *),
      *
-
      *
      * @param Request $request
      * @param Response $response
@@ -105,7 +104,7 @@ class BreedController
         $search = $params['name'] ?? null;
 
         $breeds = FindBreeds::find($page, $limit, $search);
-        
+
         return $this->buildResponse($breeds, $response);
     }
 
@@ -122,5 +121,4 @@ class BreedController
         return $response
             ->withHeader('Content-Type', 'application/json');
     }
-
 }

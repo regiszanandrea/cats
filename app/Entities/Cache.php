@@ -38,6 +38,7 @@ class Cache extends Model
      * @var array
      */
     protected $fillable = [
-        'key', 'value'
+        'key',
+        'value'
     ];
 }
