@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="tests/bootstrap.php"
+         colors="true"
+         backupGlobals="false"
+         backupStaticAttributes="false">
+    <testsuites>
+        <testsuite name="Tests">
+            <directory suffix="Test.php">tests/</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">src</directory>
+            <exclude>
+                <directory>app</directory>
+                <directory>config</directory>
+                <directory>database</directory>
+                <directory>public</directory>
+                <directory>routes</directory>
+                <directory>swagger</directory>
+                <directory>vendor</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+    <php>
+        <const name="APP_ENV" value="testing"/>
+        <const name="APP_NAME" value="cats"/>
+        <const name="APP_URL" value="127.0.0.1"/>
+        <env name="DB_NAME" value="testing" force="true"/>
+        <const name="JWT_SECRET" value="supersecret"/>
+        <const name="CAT_API_URL" value="https://api.thecatapi.com/v1/"/>
+        <const name="CAT_API_KEY" value="94de1a80-1225-4561-9bcc-ac24006da3da"/>
+        <const name="CAT_API_AUTHENTICATION_HEADER" value="x-api-key"/>
+        <const name="PHPUNIT_TEST_SUITE" value="1"/>
+    </php>
+</phpunit>
