@@ -5,13 +5,14 @@ use Illuminate\Database\Capsule\Manager;
 
 $root = __DIR__;
 
+// Register configs
 $catApi = include("{$root}/config/cat-api.php");
 $app->catApi = $catApi;
 
 $database = include("{$root}/config/database.php");
 
 $capsule = new Manager;
-$capsule->addConnection($database['mysql']);
+$capsule->addConnection($database[$_ENV['DB_DRIVER']]);
 
 $capsule->setAsGlobal();
 $capsule->bootEloquent();
@@ -21,6 +22,7 @@ $container['db'] = function ($container) use ($capsule) {
     return $capsule;
 };
 
+// Register routes
 require "{$root}/routes/web.php";
 require "{$root}/routes/api.php";
 require "{$root}/routes/auth.php";
@@ -39,6 +41,7 @@ if ($_ENV['DEBUG'] == 'true') {
     $errorHandler->registerErrorRenderer('application/json', Handler::class);
 }
 
+// Register middlewares
 $app->add(new Tuupola\Middleware\HttpBasicAuthentication([
     "path" => "/login",
     "relaxed" => ["127.0.0.1", "localhost"],
@@ -49,7 +52,7 @@ $app->add(new Tuupola\Middleware\HttpBasicAuthentication([
 ]));
 
 $app->add(new Tuupola\Middleware\JwtAuthentication([
-    "secure" => false,
+    'secure' => false,
     'path' => '/api',
     'relaxed' => ['127.0.0.1', 'localhost'],
     'secret' =>  $_ENV['JWT_SECRET']

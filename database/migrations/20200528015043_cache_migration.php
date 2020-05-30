@@ -25,6 +25,6 @@ class CacheMigration extends Migration
      */
     public function down()
     {
-        $this->schema->drop('widgets');
+        $this->schema->drop('cache');
     }
 }
