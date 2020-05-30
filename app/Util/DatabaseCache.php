@@ -99,14 +99,15 @@ class DatabaseCache implements CacheInterface
     /**
      * @param iterable $values
      * @param null $ttl
-     * @return bool|void
+     * @return bool
      * @throws InvalidKeyArgumentException
      */
     public function setMultiple($values, $ttl = null)
     {
         foreach ($values as $key => $value) {
-            $this->set($value, $key);
+            $this->set($key, $value);
         }
+        return true;
     }
 
     /**
@@ -119,6 +120,7 @@ class DatabaseCache implements CacheInterface
         foreach ($keys as $key) {
             $this->delete($key);
         }
+        return true;
     }
 
     /**
@@ -132,7 +134,7 @@ class DatabaseCache implements CacheInterface
 
         $value = Cache::whereKey($key)->first();
 
-        return $value === null;
+        return $value !== null;
     }
 
     /**
