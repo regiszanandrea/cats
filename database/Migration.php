@@ -23,7 +23,7 @@ class Migration extends AbstractMigration
     public function init()
     {
         $database = include(__DIR__ . '/../config/database.php');
-        $database = $database['mysql'];
+        $database = $database[$_ENV['DB_DRIVER']];
 
         $this->capsule = new Capsule;
         $this->capsule->addConnection($database);

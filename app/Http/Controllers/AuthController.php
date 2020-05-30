@@ -1,9 +1,9 @@
 <?php
 
-
 namespace App\Http\Controllers;
 
-
+use DateTime;
+use Exception;
 use Tuupola\Base62;
 use Firebase\JWT\JWT;
 use Slim\Psr7\Request;
@@ -20,12 +20,12 @@ class AuthController
      * @param Request $request
      * @param Response $response
      * @return mixed
-     * @throws \Exception
+     * @throws Exception
      */
     public function login(Request $request, Response $response)
     {
-        $now = new \DateTime();
-        $future = new \DateTime('now +2 hours');
+        $now = new DateTime();
+        $future = new DateTime('now +2 hours');
         $server = $request->getServerParams();
 
         $jti = (new Base62)->encode(random_bytes(16));

@@ -22,7 +22,7 @@ Generates .env
 cp .env.example .env
 ```
 
-Add CAT_API_KEY, APP_URL to your .env 
+Add CAT_API_KEY, APP_URL, APP_KEY, JWT_SECRET and DB_DRIVER to your .env 
 ```bash
 nano .env
 ```
@@ -54,7 +54,7 @@ docker run -d -p 8080:8080 -e SWAGGER_JSON=/openapi.yaml -v h<absolute pat>/publ
 ## Testing
 Just run:
 ```bash
-phpunit
+phpunit --configuration phpunit.xml
 ```
 
 
