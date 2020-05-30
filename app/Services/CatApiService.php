@@ -7,7 +7,6 @@ use App\Util\ApiRequest;
 use App\Util\DatabaseCache;
 use App\Exceptions\InvalidKeyArgumentException;
 
-
 /**
  * Class CatApiService
  * @package App\Services

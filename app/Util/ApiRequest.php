@@ -1,15 +1,20 @@
 <?php
 
-
 namespace App\Util;
-
 
 use Exception;
 use GuzzleHttp\Client;
 
+/**
+ * Class ApiRequest
+ * @package App\Util
+ */
 class ApiRequest
 {
 
+    /**
+     * @var Client
+     */
     private $client;
 
     /**
@@ -47,5 +52,4 @@ class ApiRequest
             'query' => $parameters
         ]);
     }
-
 }
