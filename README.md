@@ -47,7 +47,7 @@ And you are good to go :)
 ## Documentation
 The documentation was build with swagger. So, to run swagger, you will need docker and execute:
 ```bash
-docker run -d -p 8080:8080 -e SWAGGER_JSON=/openapi.yaml -v h<absolute pat>/public/swagger/openapi.yaml:/openapi.yaml swaggerapi/swagger-ui
+docker run -d -p 8080:8080 -e SWAGGER_JSON=/openapi.yaml -v <absolute path>/public/swagger/openapi.yaml:/openapi.yaml swaggerapi/swagger-ui
 ```
 <a name="testing" />
 
