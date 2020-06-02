@@ -29,7 +29,7 @@
         <env name="DB_NAME" value="testing" force="true"/>
         <const name="JWT_SECRET" value="supersecret"/>
         <const name="CAT_API_URL" value="https://api.thecatapi.com/v1/"/>
-        <const name="CAT_API_KEY" value="94de1a80-1225-4561-9bcc-ac24006da3da"/>
+        <const name="CAT_API_KEY" value="<YOUR-API-KEY>"/>
         <const name="CAT_API_AUTHENTICATION_HEADER" value="x-api-key"/>
         <const name="PHPUNIT_TEST_SUITE" value="1"/>
     </php>
